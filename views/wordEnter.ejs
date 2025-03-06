@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word</title>
+</head>
+
+<style>
+  input{
+    display: block;
+    width: 500px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-bottom: 50px;
+  }
+  textarea{
+    display: block;
+    font-size: 25px;
+  }
+  label{
+    font-size: 25px;
+  }
+  h1{
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 10px;
+    margin-bottom: 60px;
+  }
+
+  button{
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+    margin-top: 30px;
+    background-color: rgb(3, 192, 3);
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+  button:active{
+    filter: brightness(80%);
+  }
+</style>
+<body>
+  <h1>share information of interest to others</h1>
+
+  <form action="/api/data" method="post">
+
+    <input type="hidden" name="email" value="<%= email %>" hidden>
+    <label for="title">Title</label>
+    <input id="title" type="text" name="title" placeholder="Enter Title" required>
+    <label for="message">Enter information</label>
+    <textarea placeholder="Enter Interesting Information" id="message" name="message" rows="5" cols="50"></textarea>
+    <button type="submit">send to the public</button>
+  </form>
+
+
+  
+</body>
+</html>

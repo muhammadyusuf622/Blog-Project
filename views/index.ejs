@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blog</title>
+</head>
+
+<style>
+
+
+  p{
+    /* margin-right: 70px; */
+    margin: 2px 70px 0px 0px;
+  }
+  .inp-post{
+    width: 300px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  label{
+    font-size: 25px;
+  }
+
+  li{
+    font-size: 25px;
+    list-style-type: none;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 55px 3px 0px 3px;
+    background-color: white;
+  }
+  ul{
+    padding: 5px;
+    width: 700px;
+    border-radius: 10px;
+  }
+  .section{
+    margin: 30px auto 0px auto;
+    width: 1000px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(43, 43, 43);
+    border-radius: 10px;
+    padding: 10px 0px;
+  }
+
+  .email{
+    float: right;
+    color: gray;
+    margin: 0px;
+    font-size: 20px;
+  }
+  .title{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  .date{
+    color: gray;
+    margin: 0px;
+    font-size: 20px;
+  }
+
+  .delete-btn{
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    margin-top: 5px;
+  }
+  .delete-btn:active{
+    filter: brightness(80%);
+  }
+</style>
+<body>
+  <h1>Blog project</h1>
+
+  <form action="/api/login" method="post">
+    <label for="name">Name</label>
+    <input id="name" name="name" class="inp-post" type="text" placeholder="Enter Your Name" required>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="text" class="inp-post" placeholder="Enter Your Email" required>
+    <button type="submit" style="width: 100px; height: 35px; font-size: 20px;">Submit</button>
+  </form>
+<div class="section">
+  <ul>
+    <% data.forEach(item => { %>
+      <li>
+        <p class="email"> <%= item.email %></p>
+        <p class="date"><%= item.date %></p>
+        <p class="title"> <%= item.title %></p>
+        <p> <%= item.data %> </p>
+      </li>
+      <form action="/api/dalete" method="post">
+        <button name="del" value="<%= item.email %>" class="delete-btn">Delete</button>
+      </form>
+    <% }) %>
+  </ul>
+</div>
+</body>
+</html>
