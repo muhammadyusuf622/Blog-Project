@@ -99,13 +99,13 @@
   <ul>
     <% data.forEach(item => { %>
       <li>
-        <p class="email"> <%= item.email %></p>
-        <p class="date"><%= item.date %></p>
+        <p class="email"> <%= item.users_email %></p>
+        <p class="date"><%= item.create_at %></p>
         <p class="title"> <%= item.title %></p>
         <p> <%= item.data %> </p>
       </li>
       <form action="/api/dalete" method="post">
-        <button name="del" value="<%= item.email %>" class="delete-btn">Delete</button>
+        <button name="del" value="<%= item.users_email %>" class="delete-btn">Delete</button>
       </form>
     <% }) %>
   </ul>
